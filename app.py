@@ -4,7 +4,7 @@ import google.generativeai as genai
 from tavily import TavilyClient
 import json
 import pandas as pd
-import time
+
 
 # --- INITIAL CONFIG ---
 st.set_page_config(page_title="TruthLayer: AI Fact-Checker", page_icon="⚖️", layout="wide")
@@ -83,7 +83,6 @@ if uploaded_file and google_api_key and tavily_api_key:
     for claim in claims:
         with st.expander(f"Checking: {claim}"):
             with st.spinner("Verifying against live web data..."):
-                time.sleep(5)
                 analysis = verify_claim(claim)
                 
                 # Visual Feedback
